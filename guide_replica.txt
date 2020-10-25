@@ -1,0 +1,23 @@
+Mise en place le replica asset :
+
+(sudo) nano /etc/mongod.conf
+
+Dans ce fichier de configuration
+
+replication:
+  replSetName: rs0
+  oplogSizeMB: 100
+
+Relancer mongodb :
+
+(sudo) service mongod stop
+(sudo) service mongod start
+
+Initialiser le replicat set
+
+mongod --replSet "rs0" --bind_ip localhost
+
+Puis dans le shell de MongoDB :
+
+use local
+rs.initiate()

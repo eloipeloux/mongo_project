@@ -47,7 +47,7 @@ async function updateRestaurant(restaurant_id, body) {
     if (result) {
         return `Edited restaurant #${restaurant_id}`;
     } else {
-        return 'error...';
+        return 'Error...';
     }
 }
 
@@ -58,7 +58,7 @@ async function deleteRestaurant(restaurant_id) {
     if (result) {
         return `Deleted restaurant #${restaurant_id} successful.`;
     } else {
-        return 'error...';
+        return 'Error...';
     }
 }
 
@@ -82,7 +82,7 @@ async function findRestaurantsWithLocation(long_coordinates, lat_coordinates, ma
     if (result) {
         return result;
     } else {
-        return 'error...';
+        return 'Error...';
     }
 }
 
@@ -95,7 +95,7 @@ async function getAveragePrice() {
     if (result) {
         return `Average price for all the restaurants is ${result[0].avg_price}`;
     } else {
-        return 'error...';
+        return 'Error...';
     }
 }
 
@@ -108,7 +108,7 @@ async function getAverageRating() {
     if (result) {
         return result;
     } else {
-        return 'error...';
+        return 'Error...';
     }
 }
 
