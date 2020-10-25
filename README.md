@@ -15,7 +15,7 @@ On vérifie qu’elle existe : `show collections`
 
 On vérifie le nombre de restaurants insérés dans notre base : `db.restaurants.count()`
 
-> Pour les afficher de manière plus propre : db.restaurants.find().pretty()
+> Pour les afficher de manière plus propre : `db.restaurants.find().pretty()`
 
 
 On ajoute un champ number en 2 et 100 pour tous les restaurants : 
@@ -35,7 +35,7 @@ On ajoute pour chaque restaurant un tableau de 5 notes entre 0 et 5 :
 
 `db.inventory.insertOne({ name: "name",long_coordinates: long_coord, lat_coordinates: lat_coord});`
 
-#### UPDATE: /restaurants/:restaurant_id
+### UPDATE: /restaurants/:restaurant_id
 
 `db.restaurants.updateOne({ _id: restaurant_id }, {$set : {name: "name",long_coordinates: long_coord, lat_coordinates: lat_coord}});`
 	
@@ -43,7 +43,7 @@ On ajoute pour chaque restaurant un tableau de 5 notes entre 0 et 5 :
 
 `db.restaurants.deleteOne({ _id : restaurants_id })`
 	
-### GET: /restaurants?long_coordinates=<value>&lat_coordinates=<value>&max_distance=<v alue>  → fonctionne bien
+### GET: /restaurants?long_coordinates=<value>&lat_coordinates=<value>&max_distance=<value>
 
 Créer un index 2dsphere pour tous les restaurants
 
@@ -58,6 +58,6 @@ db.restaurants.find({location:{ $near:{ $geometry:{ type: "Point", coordinates: 
 
 `db.restaurants.aggregate([{$group: {_id: "", avg_price: {$avg:"$price"}}}])`
 			
-#### GET: /restaurants//average_rating	
+### GET: /restaurants_rating_average
 
 `db.restaurants.aggregate([{$project: {_id: ”$_id”, name: "$name", avg_stars: {$avg:"$reviews"}}}])`
